@@ -8,6 +8,8 @@ The project structure is as below..
     algorithms-datastructures-java
         -- algorithms
             -- searching
+                -- BinarySearch
+                -- LinearSearch
             
             -- sorting
                 -- BubbleSort
