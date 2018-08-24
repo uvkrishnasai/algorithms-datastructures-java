@@ -1,48 +1,48 @@
-package org.practice.sorting;
+package org.practice.programs.beginner;
 
 /**
- * Created by Krishna on 5/20/16.
- * Average and worst case complexity of bubble sort is O(n2)
- * Best case: Rabbit example {5 1 2 3 4}  O(n)
- * Worst case: Turtle example {2 3 4 5 1} O(n2)
- * Stable and adaptive
- *
- * Compare each pair of adjacent elements from the beginning
- * if they are in reverse order
- * swap them (If at least 1 swap has been done repeat step1)
- * e.g: {5, 1, 12, -5, 16, -10, -4, 6, 14, 2, 30, -1}
+ * Created by Krishna on 6/12/16.
  */
-public class BubbleSort {
+public class BubbleSort<T extends Comparable<T>>{
 
-    public void sort(int[] array) {
-        boolean swapped = true;
-        int j=0;
-        while (swapped) {
-            swapped = false;
-            j++;
-            for (int i = 0; i < array.length-j; i++) {
-                if (array[i] > array[i + 1]) {
-                    swap(array, i, i + 1);
-                    swapped = true;
-                }
-            }
-        }
+    public T[] array;
+
+    public BubbleSort(T[] array) {
+        this.array = array;
     }
 
-    private void swap(int[] array, int a, int b) {
-        int p = array[a];
-        array[a] = array[b];
-        array[b] = p;
+    public void sort(){
+        if (array.length <= 1)
+            return;
+
+        // every outer iteration places the tallest man at the end
+        for (int i = array.length-1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (this.array[j].compareTo(this.array[j+1]) > 0)
+                    swap(j, j+1);
+            }
+        }
+
+    }
+
+    public void swap(int indx1, int indx2) {
+        T tempElement = this.array[indx1];
+        this.array[indx1] = this.array[indx2];
+        this.array[indx2] = tempElement;
     }
 
     public static void main(String[] args) {
-        int[] array = {5, 1, 12, -5, 16, -10, -4, 6, 14, 2, 30, -1};
-        BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.sort(array);
-        for (int z:array) {
-            System.out.print(z + " ");
-        }
 
+        Integer[] intArray  = new Integer[]{ 21, 1, 31, 51, 41, 91, 61, 32, 36, 93}; // creation of array
+
+        BubbleSort<Integer> bSort = new BubbleSort<Integer>(intArray);
+
+        bSort.sort();
+
+        for (int i = 0; i < bSort.array.length; i++) {
+            System.out.print(bSort.array[i] +" ");
+        }
     }
+
 
 }

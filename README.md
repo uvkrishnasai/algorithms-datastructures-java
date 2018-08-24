@@ -14,6 +14,7 @@ The project structure is as below..
                 -- InsertionSort
                 -- MergeSort
                 -- QuickSort
+                -- SelectionSort
                 
         -- datastructures
             -- linkedlist
