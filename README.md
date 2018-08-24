@@ -42,6 +42,9 @@ The project structure is as below..
                 -- SumOfDigits
                 -- Swap
                 
+            -- stack
+                -- Stack
+                
             -- string
                 -- Anagram
                 -- DeleteRepeatedChars
