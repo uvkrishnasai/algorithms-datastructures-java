@@ -1,6 +1,4 @@
-package org.practice.programs.beginner;
-
-import java.util.Comparator;
+package datastructures.string;
 
 /**
  * Created by Krishna on 5/22/16.

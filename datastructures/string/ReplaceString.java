@@ -1,4 +1,4 @@
-package org.practice.programs.intermediate;
+package datastructures.string;
 
 public class ReplaceString {
 

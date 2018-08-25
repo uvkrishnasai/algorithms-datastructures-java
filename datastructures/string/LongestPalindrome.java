@@ -1,4 +1,4 @@
-package org.practice.programs.intermediate;
+package datastructures.string;
 
 import java.util.ArrayList;
 import java.util.List;

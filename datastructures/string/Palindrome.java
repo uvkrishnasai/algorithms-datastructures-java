@@ -1,4 +1,4 @@
-package org.practice.programs.beginner;
+package datastructures.string;
 
 /**
  * Created by Krishna on 5/22/16.

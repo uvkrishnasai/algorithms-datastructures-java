@@ -1,4 +1,4 @@
-package org.practice.programs.beginner;
+package datastructures.math;
 
 /**
  * Created by Krishna on 6/11/16.

@@ -1,4 +1,4 @@
-package org.practice.programs.intermediate;
+package algorithms.searching;
 
 public class BinarySearch {
 	

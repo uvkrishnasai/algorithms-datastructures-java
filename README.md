@@ -2,8 +2,8 @@
 
 This repository holds algorithms and datastructure programs practiced in Java.
 
-# Project Structure
-The project structure is as below..
+# Repository Structure
+The repo structure is as below..
 
     algorithms-datastructures-java
         -- algorithms

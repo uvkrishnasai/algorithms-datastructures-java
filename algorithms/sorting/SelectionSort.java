@@ -1,6 +1,4 @@
-package org.practice.programs.beginner;
-
-import java.util.Comparator;
+package algorithms.sorting;
 
 /**
  * Created by Krishna on 6/12/16.

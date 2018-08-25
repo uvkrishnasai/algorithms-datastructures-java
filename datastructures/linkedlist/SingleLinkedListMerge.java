@@ -1,4 +1,6 @@
-package org.practice.programs.intermediate;import java.util.Iterator;
+package datastructures.linkedlist;
+
+import java.util.Iterator;
 import java.util.List;
 
 public class SingleLinkedListMerge {

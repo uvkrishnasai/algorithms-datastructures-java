@@ -1,4 +1,4 @@
-package org.practice.programs.beginner;
+package algorithms.searching;
 
 /**
  * Created by Krishna on 6/12/16.

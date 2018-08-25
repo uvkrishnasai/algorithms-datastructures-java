@@ -1,4 +1,4 @@
-package org.practice.programs.beginner;
+package datastructures.math;
 
 import java.util.ArrayList;
 import java.util.List;

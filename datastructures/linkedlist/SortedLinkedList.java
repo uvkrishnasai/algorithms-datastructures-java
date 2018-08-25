@@ -1,4 +1,4 @@
-package org.practice.programs.intermediate;
+package datastructures.linkedlist;
 
 public class SortedLinkedList {
 	

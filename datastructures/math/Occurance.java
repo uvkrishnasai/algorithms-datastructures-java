@@ -1,4 +1,4 @@
-package org.practice.programs.beginner;
+package datastructures.math;
 
 import java.math.BigInteger;
 
