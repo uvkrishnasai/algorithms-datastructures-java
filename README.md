@@ -19,6 +19,10 @@ The repo structure is as below..
                 -- SelectionSort
                 
         -- datastructures
+            -- array
+                -- CompareTriplets
+                -- MiniMaxiSum
+            
             -- linkedlist
                 -- LinkedList
                 -- ReverSingleLinkedList
@@ -37,10 +41,14 @@ The repo structure is as below..
                 -- Occurance
                 -- OddOrEven
                 -- PerfectNumber
+                -- PlusMinus
                 -- PrimeNumber
                 -- ReverseNumber
                 -- SumOfDigits
                 -- Swap
+                
+            -- matrix
+                -- DiagnolDifference
                 
             -- stack
                 -- Stack
@@ -56,4 +64,5 @@ The repo structure is as below..
                 -- ReplaceVowelWithCaps
                 -- ReverseString
                 -- RotationalPalindrome
+                -- StairCase
                 -- ToggleChar
