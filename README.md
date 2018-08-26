@@ -66,3 +66,31 @@ The repo structure is as below..
                 -- RotationalPalindrome
                 -- StairCase
                 -- ToggleChar
+            
+        -- syntax
+            -- Anagrams
+            -- BigDecimalX
+            -- BigIntegerX
+            -- Conditions
+            -- DateAndTime
+            -- EndOfFile
+            -- FindElementsInList
+            -- IntToString
+            -- ListOperations
+            -- Loops
+            -- MapX
+            -- OneDimesionArray
+            -- PatternSyntaxChecker
+            -- PrimalityTest
+            -- Regex
+            -- StackX
+            -- StaticInitializer
+            -- StringFormatting
+            -- StringReverse
+            -- Strings
+            -- StringTokens
+            -- SubArray
+            -- SubStringComparisions
+            -- SubStringX
+            -- TagContentExtractor
+            
