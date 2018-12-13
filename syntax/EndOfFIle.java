@@ -6,6 +6,10 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
+ *
+ * Java 8 Practice. Repeated work can be avoided.
+ * ==============================================
+ *
  * The challenge here is to read n lines of input until you reach EOF,
  * then number and print all n lines of content.
  *
@@ -30,14 +34,15 @@ import java.util.stream.IntStream;
 public class EndOfFIle {
 
     public static void main(String[] args) {
-        // Java 8 Practice. Repeated work can be avoided.
         Scanner scanner = new Scanner(System.in);
         List<String> sList = new ArrayList<>();
         while (scanner.hasNext()) {
             sList.add(scanner.nextLine());
         }
-        IntStream
-                .rangeClosed(1, sList.size())
-                .forEach(i -> System.out.println(String.format("%d %s", i, sList.get(i-1))));
+
+        IntStream.rangeClosed(1, sList.size())
+                .forEach(i ->
+                        System.out.println(String.format("%d %s", i, sList.get(i-1)))
+                );
     }
 }

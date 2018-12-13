@@ -32,7 +32,6 @@ import java.util.stream.IntStream;
 public class FindElementInList {
 
     public static void main(String[] args) {
-        /* Java 8 Practise */
         Scanner scan = new Scanner(System.in);
         List<int[]> list = IntStream
                 .range(0, scan.nextInt())

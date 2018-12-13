@@ -12,6 +12,5 @@ public class DateAndTime {
 
     public static void main(String[] args) {
         System.out.println(getDay("25", "11", "1988"));
-
     }
 }

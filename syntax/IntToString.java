@@ -8,9 +8,8 @@ public class IntToString {
 
     public static void main(String[] args) {
         int n = scanner.nextInt();
-        String s = "";
         if (n >= -100 && n <=100) {
-            s = String.valueOf(n);
+            System.out.println(String.valueOf(n));
         }
     }
 }

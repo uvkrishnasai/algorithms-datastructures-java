@@ -5,7 +5,10 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Java 8 Comparator, sorting, maps, inner class practise.
+ * =======================================================
  * Sample Input
+ * ------------
  * 9
  * -100
  * 50
@@ -18,6 +21,7 @@ import java.util.List;
  * 000.000
  *
  * Sample Output
+ * -------------
  * 90
  * 56.6
  * 50
@@ -31,12 +35,9 @@ import java.util.List;
 public class BigDecimalX {
 
     public static void main(String[] args) {
-        //Java 8 Comparator, sorting, maps, inner class practise.
-        String[] s = {};
-        int n = 0;
 
-        String[] s1 = new String[s.length];
-        System.arraycopy(s, 0, s1, 0, s.length );
+        String[] s1 = {"9", "-100", "50", "0", "56.6", "90", "0.12", ".12", "02.34", "000.000"};
+        int n = s1.length;
 
         class Custom {
             private String value;
@@ -68,14 +69,15 @@ public class BigDecimalX {
                 .mapToObj(i -> new Custom(s1[i], i))
                 .collect(java.util.stream.Collectors.toList());
 
-        s = customList.stream()
+        customList.stream()
                 .sorted(
-                        Comparator.comparing(Custom::getBigValue)
+                        Comparator
+                                .comparing(Custom::getBigValue)
                                 .reversed()
                                 .thenComparingInt(Custom::getPosition)
                 )
                 .map(Custom::getValue)
-                .toArray(String[]::new);
+                .forEach(System.out::println);
     }
 
 }
