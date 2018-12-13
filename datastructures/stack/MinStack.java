@@ -1,93 +1,82 @@
 package datastructures.stack;
 
 /**
- * Created by Krishna on 6/12/16.
+ * Cracking the coding interview: 3.2
+ * Stack Min: Push, Pop, Min should all operate in O(1) time.
  */
-public class Stack {
+public class MinStack extends Stack {
 
-    protected int size = 0;
-    protected Node node;
+    private Stack stack;
 
-    static class Node {
-        int value;
-        Node prev;
-
-        public Node(int value) {
-            this.value = value;
-        }
+    public MinStack() {
+        this.stack = new Stack();
     }
 
-    /**
-     * Push element into stack
-     * @param element
-     */
-    public void push(int element) {
-        Node node = new Node(element);
-
-        if (this.node != null) {
-            node.prev = this.node;
+    public void push(int elem) {
+        // if element < prev element, push the element into new stack
+        if (this.node == null || elem <= this.node.value) {
+            stack.push(elem);
         }
 
-        this.node = node;
-        this.size++;
+        super.push(elem);
     }
 
-    public int pop(){
+    @Override
+    public int pop() {
         assert size > 0 : "Stack is empty";
 
-        Node node = this.node;
-        this.node = node.prev;
+        if(this.node.value == this.stack.peek()) {
+            this.stack.pop();
+        }
 
-        this.size--;
-
-        return node.value;
+        return super.pop();
     }
 
-    public int peek() {
-        assert size > 0 : "Stack is empty";
-
-        return this.node.value;
-    }
-
-    public boolean isEmpty(){
-        return size == 0;
+    public int min() {
+        return this.stack.peek();
     }
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        MinStack stack = new MinStack();
         assert stack.size == 0;
 
         stack.push(11);
         assert stack.size == 1;
         assert stack.peek() == 11;
+        assert stack.min() == 11;
 
         stack.push(4);
         assert stack.size == 2;
         assert stack.peek() == 4;
+        assert stack.min() == 4;
 
         stack.push(6);
         assert stack.size == 3;
         assert stack.peek() == 6;
+        assert stack.min() == 4;
 
         assert stack.pop() == 6;
         assert stack.size == 2;
         assert stack.peek() == 4;
+        assert stack.min() == 4;
 
         stack.push(7);
         assert stack.size == 3;
         assert stack.peek() == 7;
+        assert stack.min() == 4;
 
         stack.push(12);
         assert stack.size == 4;
         assert stack.peek() == 12;
+        assert stack.min() == 4;
 
         assert stack.pop() == 12;
         assert stack.pop() == 7;
         assert stack.pop() == 4;
         assert stack.size == 1;
+        assert stack.min() == 11;
 
         assert stack.pop() == 11;
         assert stack.isEmpty();
     }
-
 }
