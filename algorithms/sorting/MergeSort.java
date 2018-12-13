@@ -2,73 +2,93 @@ package algorithms.sorting;
 
 import java.util.Arrays;
 
+/**
+ * Merge sort
+ */
 public class MergeSort {
 
-	private int[] queue;
-	
-	private int getMidpoint(int queueSize){
-		return queueSize/2;
+	static void sort(int[] q) {
+		divideAndConcur(q);
 	}
-	
-	private void divideAndConcur(int[] queue){
-		int midPoint = getMidpoint(queue.length);
-		int[] subQueue1 = new int[midPoint];
-		int[] subQueue2 = new int[queue.length - midPoint];
-		
 
-		subQueue1 = subQueue1.length==1? new int[] {queue[midPoint-1]} : Arrays.copyOfRange(queue, 0, midPoint);
-		subQueue2 = subQueue2.length==1? new int[] {queue[midPoint]} : Arrays.copyOfRange(queue, midPoint, queue.length);
-		
-		if (subQueue1.length == 1) {
-			if (subQueue2.length == 1) {
-				concur(queue, subQueue1, subQueue2);
+	/*
+	 * Divide the array into haf and concur the 2 halves using merge sort
+	 * Recursion
+	 */
+	private static void divideAndConcur(int[] q){
+
+		int mid = getMidpoint(q.length);
+		int[] subQ1 = new int[mid];
+		int[] subQ2 = new int[q.length - mid];
+
+		subQ1 = subQ1.length==1? new int[] {q[mid-1]} : Arrays.copyOfRange(q, 0, mid);
+		subQ2 = subQ2.length==1? new int[] {q[mid]} : Arrays.copyOfRange(q, mid, q.length);
+
+		if (subQ1.length == 1) {
+			if (subQ2.length == 1) {
+				concur(q, subQ1, subQ2);
 			}else{
-				divideAndConcur(subQueue2);
-				concur(queue, subQueue1, subQueue2);
+				divideAndConcur(subQ2);
+				concur(q, subQ1, subQ2);
 			}
 		}else{
-			divideAndConcur(subQueue1);
-			divideAndConcur(subQueue2);
-			concur(queue, subQueue1, subQueue2);
+			divideAndConcur(subQ1);
+			divideAndConcur(subQ2);
+			concur(q, subQ1, subQ2);
 		}
-		
 	}
-	
-	private void concur(int[] queue, int[] subQueue1, int[] subQueue2){
-		int cnt = 0;
-		int startPos = 0;
-		
-		for (int i = 0; i < subQueue2.length; i++) {
-			for (int j = startPos; j < subQueue1.length; j++) {
-				if (subQueue2[i] > subQueue1[j]) {
-					cnt = pushToQueue(queue, subQueue1[j], cnt);
-					startPos = j+1;
-				}
+
+	/*
+	 * Helper method to get mid point.
+	 */
+	private static int getMidpoint(int qSize){
+		return qSize/2;
+	}
+
+	/*
+	 * Merge 2 array left and right
+	 */
+	private static void concur(int[] q, int[] subQ1, int[] subQ2){
+		int ind = 0;
+		int pos = 0;
+
+		// push all elements of subQ2 into q
+		// compare each elem of subQ2 with elements of subQ1 and push elem of subQ1 if it is smaller
+		for (int i = 0; i < subQ2.length; i++) {
+			for (int j = pos; j < subQ1.length; j++) {
+				if (subQ2[i] > subQ1[j]) {
+					ind = pushToQueue(q, subQ1[j], ind);
+					pos = j+1;
+				} else
+					break; // smaller elem from subQ1 not found, can jump to next elem in subQ2
 			}
-			cnt = pushToQueue(queue, subQueue2[i], cnt);
+			ind = pushToQueue(q, subQ2[i], ind);
 		}
-		
-		for (int i = startPos; i < subQueue1.length; i++) {
-			cnt = pushToQueue(queue, subQueue1[i], cnt);
+
+		// push all other element of subQ1 which are left from above iteration
+		for (int i = pos; i < subQ1.length; i++) {
+			ind = pushToQueue(q, subQ1[i], ind);
 		}
 	}
 	
-	private int pushToQueue(int[] queue, int element, int index){
-		queue[index++] = element;
-		return index;
+	private static int pushToQueue(int[] q, int elem, int ind){
+		q[ind++] = elem;
+		return ind;
 	}
-	
-	private void sort() {
-		divideAndConcur(queue);
-	}
-	
+
 	public static void main(String[] args) {
-		MergeSort ms = new MergeSort();
-		ms.queue = new int[] {77, 32, 55, 56, 75, 11, 89, 8, 4, 5, 1, 90};
-		ms.sort();
-		for (int element : ms.queue) {
-			System.out.print(element + ",");
-		}
+		int[] q = new int[] { 21, 1, 31, 51, 41, 91, 61, 32, 36, 90};
+		sort(q);
+
+		assert q[0] == 1;
+		assert q[1] == 21;
+		assert q[2] == 31;
+		assert q[3] == 32;
+		assert q[4] == 36;
+		assert q[5] == 41;
+		assert q[6] == 51;
+		assert q[7] == 61;
+		assert q[8] == 90;
+		assert q[9] == 91;
 	}
-	
 }

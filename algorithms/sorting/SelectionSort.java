@@ -30,7 +30,7 @@ public class SelectionSort<T extends Comparable<T>> {
 
     }
 
-    public void swap(int indx1, int indx2) {
+    private void swap(int indx1, int indx2) {
         T tempElement = this.array[indx1];
         this.array[indx1] = this.array[indx2];
         this.array[indx2] = tempElement;

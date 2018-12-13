@@ -1,8 +1,11 @@
 package algorithms.searching;
 
+/**
+ * Binary Search using recursion
+ */
 public class BinarySearch {
 	
-	public int[] elements;
+	private int[] elements;
 	private int size;
 	private int index;
 	
@@ -10,8 +13,12 @@ public class BinarySearch {
 		this.size = size;
 		elements = new int[size];
 	}
-	
-	public void insert(int element){
+
+	/**
+	 * Insert elements in sorted order
+	 * @param element int
+	 */
+	private void insert(int element){
 		elements[index] = element;
 		for (int j = index; j >0; j--) {
 			if (elements[j] < elements[j-1]) {
@@ -22,20 +29,25 @@ public class BinarySearch {
 		}
 		index++;
 	}
-	
-	public void swap(int a, int b){
+
+	private void swap(int a, int b){
 		int temp = elements[a];
 		elements[a] = elements[b];
 		elements[b] = temp;
 	}
-	
-	public void search(int searchElement){
+
+	/**
+	 * Search and return index of the element
+	 * @param searchElement int
+	 * @return -1 if element not found else return index
+	 */
+	public int search(int searchElement){
 		int lower = 0;
 		int upper = size-1;
-		System.out.println(binarySearchRecursive(searchElement, lower, upper));
+		return binarySearchRecursive(searchElement, lower, upper);
 	}
-	
-	public int binarySearchRecursive(int key, int lower, int upper){
+
+	private int binarySearchRecursive(int key, int lower, int upper){
 		int mid = (lower+upper)/2;
 		if (elements[mid] == key) {
 			return mid;
@@ -57,15 +69,10 @@ public class BinarySearch {
 
 	public static void main(String[] args) {
 		BinarySearch bs = new BinarySearch(5);
-		bs.insert(13);
-		bs.insert(22);
-		bs.insert(47);
-		bs.insert(10);
-		bs.insert(1);
-		for (int i : bs.elements) {
-			System.out.println(i);
-		}
-		bs.search(47);
+		bs.insert(13); bs.insert(22); bs.insert(47); bs.insert(10); bs.insert(1);
+
+		assert bs.search(47) == 4;
+		assert bs.search(23) == -1;
 	}
 
 }
