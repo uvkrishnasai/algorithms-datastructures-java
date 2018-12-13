@@ -2,6 +2,7 @@ package datastructures.string;
 
 /**
  * Created by Krishna on 6/12/16.
+ * Brute force.
  */
 public class DeleteRepeatedChars {
 

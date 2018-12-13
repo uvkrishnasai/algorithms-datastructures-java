@@ -3,6 +3,10 @@ package datastructures.string;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Best solution is to use dynamic programming.
+ * TODO: Rewrite the solution.
+ */
 public class LongestPalindrome {
 
 	public static void main(String[] args) {
@@ -25,7 +29,7 @@ public class LongestPalindrome {
 		System.out.println("longest palindrome in "+str+" = "+findLongestPalindromeInString(str));
 		
 	}
-	
+
 	private static String findLongestPalindromeInString(String str) {
 		String highestLengthPalindrome = null;
 		int highestLength = 0;

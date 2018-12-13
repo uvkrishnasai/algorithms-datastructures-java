@@ -14,7 +14,6 @@ package datastructures.string;
  */
 public class ToggleChar {
 
-    //Mine == JMSE
     public static String toggle(String s) {
         char[] charArray = s.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
@@ -37,6 +36,4 @@ public class ToggleChar {
     public static void main(String[] args) {
         System.out.println(toggle("Java"));
     }
-
-
 }

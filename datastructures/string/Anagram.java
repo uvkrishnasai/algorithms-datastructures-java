@@ -4,7 +4,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Anagram {
-	
+
+	/**
+	 * Anagram using recursion.
+	 *
+	 * ABCD
+	 * -> A | BCD
+	 * -> A | B | CD
+	 * -> A | B | C | D
+	 * -> A | B | CD || DC
+	 * -> A | BCD || CBD || CDB || BDC || DBC || DCB
+	 * -> ABCD || BACD || ....
+	 *
+	 * @param str
+	 * @return set of anagrams
+	 */
 	public static Set<String> getAnagram(String str){
 		Set<String> anagram = new HashSet<>(); 
 		Set<String> set;
@@ -13,6 +27,7 @@ public class Anagram {
 			anagram.add("");
 			return anagram;
 		}
+
 		firstChar = str.charAt(0);
 		String strWithOutFirstChar = str.substring(1);
 		set = getAnagram(strWithOutFirstChar);
@@ -22,8 +37,8 @@ public class Anagram {
 				anagram.add(insertChar(string, i, firstChar));
 			}
 		}
+
 		return anagram;
-		
 	}
 	
 

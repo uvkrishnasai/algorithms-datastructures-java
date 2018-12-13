@@ -10,7 +10,6 @@ public class RotationalPalindrome {
 
     public static boolean isRotationalPalindrome(String str){
         String rotateStr = str;
-
         do {
             if (isPalindrome(rotateStr))
                 return true;
